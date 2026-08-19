@@ -23,12 +23,12 @@ Every developer needs ai code security auditor — but existing tools are either
 
 ## Features
 
-- **AI-driven vulnerability detection** — AI-driven vulnerability detection
-- **OWASP Top 10 coverage** — OWASP Top 10 coverage
-- **Risk scoring with severity levels** — Risk scoring with severity levels
-- **Remediation suggestions powered by LLMs** — Remediation suggestions powered by LLMs
-- **CI/CD integration support** — CI/CD integration support
-- **Zero cloud dependency** — Zero cloud dependency
+- AI-driven vulnerability detection
+- OWASP Top 10 coverage
+- Risk scoring with severity levels
+- Remediation suggestions powered by LLMs
+- CI/CD integration support
+- Zero cloud dependency
 
 ## Quick Start
 
