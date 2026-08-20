@@ -1,153 +1,91 @@
 # AI Code Security Auditor
 
-AI-based security auditor that scans codebases for vulnerabilities and generates comprehensive security reports.
+![CI](https://github.com/Qyroxen/AI-Code-Security-Auditor/actions/workflows/ci.yml/badge.svg) ![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go) ![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Stars](https://img.shields.io/github/stars/Qyroxen/AI-Code-Security-Auditor?style=social)
 
-[![Go Version](https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![CI](https://github.com/Qyroxen/ai-code-security-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/Qyroxen/ai-code-security-auditor/actions/workflows/ci.yml)
+> Security audit your codebase with AI - find vulnerabilities before hackers do
 
-> AI-based security auditor that scans codebases for vulnerabilities and generates comprehensive security reports.
+[![Star Badge](https://img.shields.io/github/stars/Qyroxen/AI-Code-Security-Auditor?style=social)](https://github.com/Qyroxen/AI-Code-Security-Auditor/stargazers)
 
 ## What is it?
 
-AI Code Security Auditor is a command-line tool built with Go that helps developers ai-based security auditor that scans codebases for vulnerabilities and generates comprehensive security reports. It's designed to be fast, reliable, and easy to use.
+AI Code Security Auditor performs deep security analysis using local LLM. Identifies vulnerabilities, misconfigurations, and security anti-patterns.
 
-## Why?
+## Why should you care?
 
-Every developer needs ai code security auditor — but existing tools are either too complex, too slow, or require cloud dependencies. We built AI Code Security Auditor to be:
-- **Fast** — Written in Go for maximum performance
-- **Offline** — No cloud dependencies, your data stays on your machine
-- **Simple** — Clean CLI interface with sensible defaults
-- **Extensible** — Easy to customize and integrate into your workflow
+Security vulnerabilities cost companies millions. This tool finds them before they're exploited.
+
+## Demo
+
+```bash
+./ai-code-security-audit audit --path ./my-project
+```
+
+**Output:**
+```
+Security Audit Report:
+  CRITICAL: SQL Injection in auth.go:67
+  HIGH: Hardcoded API key in config.go:12
+  MEDIUM: Weak password validation in user.go:34
+```
 
 ## Features
 
-- AI-driven vulnerability detection
-- OWASP Top 10 coverage
-- Risk scoring with severity levels
-- Remediation suggestions powered by LLMs
-- CI/CD integration support
-- Zero cloud dependency
+- Comprehensive security analysis
+- OWASP Top 10 detection
+- Custom security rules
+- PDF/HTML report generation
+- CI/CD integration ready
 
 ## Quick Start
 
-### Prerequisites
-
-- Go 1.23 or later
-
-### Install
-
 ```bash
-# Install with go install
-go install github.com/Qyroxen/ai-code-security-auditor@latest
+# Install
+git clone https://github.com/Qyroxen/AI-Code-Security-Auditor.git
+cd AI-Code-Security-Auditor
+go build -o ai-code-security-audit .
 
-# Or build from source
-git clone https://github.com/Qyroxen/ai-code-security-auditor.git
-cd ai-code-security-auditor
-go build -o ai-code-security-auditor .
-```
-
-### Usage
-
-```bash
-# Basic usage
-.ai-code-security-auditor --help
-
-# Example
-./ai-code-security-auditor audit --path ./app --format json
-```
-
-## Output
-
-```
-AI Code Security Auditor v1.0.0
-
-Scanning...
-
-✓ Analysis complete
-✓ Results ready
-
-{
-  "status": "success",
-  "results": [...]
-}
-```
-
-## Configuration
-
-Create a `.config.yaml` file in your project root:
-
-```yaml
-# Configuration options
-verbose: true
-output: json
-timeout: 30s
+# Run
+./ai-code-security-audit --path ./my-project
 ```
 
 ## CLI Flags
 
-```
-ai code security auditor [command]
-
-Flags:
-  --path string      Target path (default ".")
-  --format string    Output format: json, text (default "text")
-  --verbose          Enable verbose output
-  --config string    Config file path
-  --output string    Output file path
-```
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--path` | Target directory | `.` |
+| `--rules` | Custom rules file | `default` |
+| `--output` | Report format (pdf, html, json) | `json` |
+| `--compliance` | Check against standards (OWASP, NIST) | `owasp` |
 
 ## Examples
 
-### Basic Example
+# Basic audit
+./ai-code-security-audit audit --path ./src
 
-```bash
-.ai-code-security-auditor --path ./src
-```
+# OWASP compliance check
+./ai-code-security-audit audit --path ./src --compliance owasp
 
-### Advanced Example
-
-```bash
-.ai-code-security-auditor --path ./src --format json --output report.json --verbose
-```
-
-### CI/CD Integration
-
-```yaml
-# .github/workflows/ci.yml
-- name: Run AI Code Security Auditor
-  run: |
-    go install github.com/Qyroxen/ai-code-security-auditor@latest
-    ai-code-security-auditor --path . --format json --output report.json
-```
-
-## Documentation
-
-- [Getting Started](docs/getting-started.md)
-- [Configuration](docs/configuration.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](examples/)
-- [Contributing](CONTRIBUTING.md)
+# Generate PDF report
+./ai-code-security-audit audit --path ./src --output pdf
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
-
-**Qyroxen** - [GitHub](https://github.com/Qyroxen)
-
 ---
 
-**Found this useful?** Give it a ⭐ on GitHub!
+<p align="center">
+  <a href="https://github.com/Qyroxen/AI-Code-Security-Auditor/stargazers">
+    <img src="https://img.shields.io/github/stars/Qyroxen/AI-Code-Security-Auditor?style=social" alt="Star this repo">
+  </a>
+  <a href="https://github.com/Qyroxen/AI-Code-Security-Auditor/network/members">
+    <img src="https://img.shields.io/github/forks/Qyroxen/AI-Code-Security-Auditor?style=social" alt="Fork this repo">
+  </a>
+  <a href="https://github.com/Qyroxen/AI-Code-Security-Auditor/issues">
+    <img src="https://img.shields.io/github/issues/Qyroxen/AI-Code-Security-Auditor" alt="Issues">
+  </a>
+</p>
